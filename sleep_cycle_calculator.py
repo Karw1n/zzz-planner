@@ -29,7 +29,7 @@ my_bed_time = datetime.strptime("21:00", "%H:%M")
 my_wake_time_options = sleep_cycle_calculator(my_bed_time)
 
 for sleep_cycle, wake_time in my_wake_time_options.items():
-  print(f'Number of Sleep Cycles: {sleep_cycle}. Wake Up time: {wake_time.strftime("%H:%M")}')
+  print(f'Number of Sleep Cycles: {sleep_cycle}. Wake Up time: {wake_time.strftime("%I:%M %p")}')
   
 
 # In order to add these sleep times a helper function is needed to accomodate for the 24 hour clock
