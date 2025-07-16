@@ -1,9 +1,6 @@
 from datetime import datetime, timedelta
 
-# bed_time: Float, the time of sleep in hours
-# Currently returns a list of sleep cycles and the total sleep time.
-# Constraint that needs to be added, 24 hour clock
-def sleep_cycle_calculator(bed_time):
+def end_of_sleep_cycle_wake_times(bed_time):
   time_to_fall_asleep = timedelta(minutes=15)  # Average time for someone to fall asleep
   sleep_cycle_time = timedelta(minutes=90)     # Typical sleep cycle time
   
@@ -24,13 +21,15 @@ def sleep_cycle_calculator(bed_time):
   
   return wake_times
 
+# From 
+def optimum_wake_up_time(wake_times):
+  return (wake_times[5], wake_times[6])
 
-my_bed_time = datetime.strptime("21:00", "%H:%M")
-my_wake_time_options = sleep_cycle_calculator(my_bed_time)
+# my_bed_time = datetime.strptime("22:45", "%H:%M")
+# my_wake_time_options = end_of_sleep_cycle_wake_times(my_bed_time)
 
-for sleep_cycle, wake_time in my_wake_time_options.items():
-  print(f'Number of Sleep Cycles: {sleep_cycle}. Wake Up time: {wake_time.strftime("%I:%M %p")}')
+# for sleep_cycle, wake_time in my_wake_time_options.items():
+#   print(f'Number of Sleep Cycles: {sleep_cycle}. Wake Up time: {wake_time.strftime("%H:%M")}')
   
-
-# In order to add these sleep times a helper function is needed to accomodate for the 24 hour clock
-# Returns the sum of two times on a 24 hour clock
+# # Maybe create a time formatter so it's all in one universal metric
+# print(optimum_wake_up_time(my_wake_time_options))
