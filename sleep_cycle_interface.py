@@ -18,22 +18,9 @@ def sleep_cycle_interface():
   time_format = get_time_format()
   
   if time_format == 24:
-    while True:
-      user_input = input('Enter time in 24-hour format (HH:MM): ')
-      try:
-        bed_time = datetime.strptime(user_input, '%H:%M')
-        break # Input is valid, exit loop
-      except ValueError:
-        print('Invalid time format. Please enter in HH:MM.')
+    bed_time = get_bed_time_24_hr()
   else: # 12 hour clock
-    while True:
-      user_input = input('Enter time in 12-hour format (HH:MM AM/PM): ').strip()
-      
-      try:
-        bed_time = datetime.strptime(user_input, '%I:%M %p')
-        break # Valid input
-      except ValueError:
-        print("Invalid time format. Please enter in HH:MM AM/PM.")
+    bed_time = get_bed_time_12_hr()
 
   print(bed_time)
   
@@ -46,4 +33,20 @@ def get_time_format():
     
     else:
       print('Invalid input. Please type \'12\' or \'24\'')
-  
+def get_bed_time_24_hr():
+    while True:
+      user_input = input('Enter time in 24-hour format (HH:MM): ')
+      try:
+        bed_time = datetime.strptime(user_input, '%H:%M')
+        return bed_time # Input is valid, exit loop
+      except ValueError:
+        print('Invalid time format. Please enter in HH:MM.')
+def get_bed_time_12_hr():
+  while True:
+      user_input = input('Enter time in 12-hour format (HH:MM AM/PM): ').strip()
+      
+      try:
+        bed_time = datetime.strptime(user_input, '%I:%M %p')
+        return bed_time # Valid input
+      except ValueError:
+        print("Invalid time format. Please enter in HH:MM AM/PM.")
