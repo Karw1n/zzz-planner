@@ -19,9 +19,17 @@ def sleep_cycle_interface():
   
   if time_format == 24:
     bed_time = get_bed_time_24_hr()
+    print(f'The optimum wake up time for a sleep starting at {bed_time.strftime('%H:%M')} is:')
+    for wake_up_time in optimum_wake_up_time(bed_time):
+      print(wake_up_time)
   else: # 12 hour clock
     bed_time = get_bed_time_12_hr()
-
+    print(f'The optimum wake up time for a sleep starting at {bed_time.strftime('%I:%M %p')} is:')
+    for wake_up_time in optimum_wake_up_time(bed_time):
+      print(wake_up_time)
+  
+    
+    
   print(bed_time)
   
 def get_time_format():
@@ -33,6 +41,7 @@ def get_time_format():
     
     else:
       print('Invalid input. Please type \'12\' or \'24\'')
+
 def get_bed_time_24_hr():
     while True:
       user_input = input('Enter time in 24-hour format (HH:MM): ')
@@ -41,12 +50,15 @@ def get_bed_time_24_hr():
         return bed_time # Input is valid, exit loop
       except ValueError:
         print('Invalid time format. Please enter in HH:MM.')
+
 def get_bed_time_12_hr():
   while True:
-      user_input = input('Enter time in 12-hour format (HH:MM AM/PM): ').strip()
+      user_input = input('Enter time in 12-hour format (HH:MM AM/PM): ').strip().upper()
       
       try:
         bed_time = datetime.strptime(user_input, '%I:%M %p')
         return bed_time # Valid input
       except ValueError:
         print("Invalid time format. Please enter in HH:MM AM/PM.")
+
+sleep_cycle_interface()

@@ -21,15 +21,7 @@ def end_of_sleep_cycle_wake_times(bed_time):
   
   return wake_times
 
-# From 
-def optimum_wake_up_time(wake_times):
+def optimum_wake_up_time(bed_time):
+  wake_times = end_of_sleep_cycle_wake_times(bed_time)
   return (wake_times[5], wake_times[6])
 
-# my_bed_time = datetime.strptime("22:45", "%H:%M")
-# my_wake_time_options = end_of_sleep_cycle_wake_times(my_bed_time)
-
-# for sleep_cycle, wake_time in my_wake_time_options.items():
-#   print(f'Number of Sleep Cycles: {sleep_cycle}. Wake Up time: {wake_time.strftime("%H:%M")}')
-  
-# # Maybe create a time formatter so it's all in one universal metric
-# print(optimum_wake_up_time(my_wake_time_options))
