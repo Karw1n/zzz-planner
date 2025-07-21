@@ -1,0 +1,35 @@
+[
+  {
+    "number_of_cycles"  : 1,
+    "description"       : "Too short, emergency nap only."
+  },
+  {
+    "number_of_cycles"  : 2,
+    "description"       : "Too short, not restorative, emergency nap only."
+  },
+  {
+    "number_of_cycles"  : 3,
+    "description"       : "Minimum for functionality, not ideal."
+  },
+  {
+    "number_of_cycles"  : 4,
+    "description"       : "Short term is restorative enough for some adults."
+  },
+  {
+    "number_of_cycles"  : 5,
+    "description"       : "Recommend amount."
+  },
+  {
+
+    "number_of_cycles"  : 6,
+    "description"       : "Optimal for full recovery."
+  },
+  {
+    "number_of_cycles"  : 7,
+    "description"       : "Sometimes used for recovery or recovery from illness."
+  },
+  {
+    "number_of_cycles"  : 8,
+    "description"       : "Unusual; may indicate sleep debt or a medical condition."
+  }
+]
